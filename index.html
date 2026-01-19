@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+            color: #000000;
+        }
+        .window {
+            width: 400px;
+            background: #ffffff;
+            border: 1px solid #999999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        .title-bar {
+            background: linear-gradient(to bottom, #c1d2ee, #a0b5d8);
+            color: #000000;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #999999;
+        }
+        .buttons {
+            display: flex;
+            gap: 2px;
+        }
+        .button {
+            width: 16px;
+            height: 14px;
+            background: #c1c1c1;
+            border: 1px solid #999999;
+            cursor: pointer;
+            font-size: 10px;
+            text-align: center;
+            line-height: 12px;
+        }
+        .content {
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .icon {
+            width: 32px;
+            height: 32px;
+            background: #ff0000;
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .icon::before,
+        .icon::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 4px;
+            background: #ffffff;
+            top: 14px;
+            left: 6px;
+        }
+        .icon::before {
+            transform: rotate(45deg);
+        }
+        .icon::after {
+            transform: rotate(-45deg);
+        }
+        .message {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #000000;
+            flex: 1;
+        }
+        .footer {
+            padding: 10px;
+            text-align: right;
+            border-top: 1px solid #cccccc;
+        }
+        .ok-button {
+            background: #e1e1e1;
+            border: 1px solid #999999;
+            padding: 4px 12px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .ok-button:hover {
+            background: #c1c1c1;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            Error
+            <div class="buttons">
+                <div class="button">_</div>
+                <div class="button">□</div>
+                <div class="button">×</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="icon"></div>
+            <div class="message">
+                Aún estoy explorando mi potencial
+            </div>
+        </div>
+        <div class="footer">
+            <button class="ok-button" onclick="window.location.href='https://hug-oh.com'">Aceptar</button>
+        </div>
+    </div>
+</body>
+</html>
