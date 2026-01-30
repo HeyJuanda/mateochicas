@@ -1,125 +1,194 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
+    <title>Mateo Alexander Chicas Villavicencio | Portafolio Profesional</title>
+    <link rel="shortcut icon" href="./scr/nav-icon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { DEFAULT: '#1e3a5f' },
+                        brand: {
+                            blue: '#3b82f6',
+                            dark: '#0a0f1a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: #f0f0f0;
-            color: #000000;
+        body { font-family: 'Inter', sans-serif; }
+        .glass { @apply bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-slate-800; }
+        
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #0a0f1a; }
         }
-        .window {
-            width: 400px;
-            background: #ffffff;
-            border: 1px solid #999999;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
+        @media (prefers-color-scheme: light) {
+            body { background-color: #f8fafc; }
         }
-        .title-bar {
-            background: linear-gradient(to bottom, #c1d2ee, #a0b5d8);
-            color: #000000;
-            padding: 4px 8px;
-            font-size: 12px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #999999;
+
+        /* FIX DEFINITIVO PARA CORTE DE TEXTO */
+        .text-gradient {
+            background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            /* El padding lateral evita que la cursiva se corte en los bordes del span */
+            padding-right: 0.15em; 
+            padding-bottom: 0.1em;
+            margin-right: -0.1em;
+            line-height: 1.1;
         }
-        .buttons {
-            display: flex;
-            gap: 2px;
+        
+        @media (prefers-color-scheme: dark) {
+            .text-gradient {
+                background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
         }
-        .button {
-            width: 16px;
-            height: 14px;
-            background: #c1c1c1;
-            border: 1px solid #999999;
-            cursor: pointer;
-            font-size: 10px;
-            text-align: center;
-            line-height: 12px;
-        }
-        .content {
-            padding: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        .icon {
-            width: 32px;
-            height: 32px;
-            background: #ff0000;
-            border-radius: 50%;
-            position: relative;
-            flex-shrink: 0;
-        }
-        .icon::before,
-        .icon::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 4px;
-            background: #ffffff;
-            top: 14px;
-            left: 6px;
-        }
-        .icon::before {
-            transform: rotate(45deg);
-        }
-        .icon::after {
-            transform: rotate(-45deg);
-        }
-        .message {
-            font-size: 14px;
-            line-height: 1.4;
-            color: #000000;
-            flex: 1;
-        }
-        .footer {
-            padding: 10px;
-            text-align: right;
-            border-top: 1px solid #cccccc;
-        }
-        .ok-button {
-            background: #e1e1e1;
-            border: 1px solid #999999;
-            padding: 4px 12px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-        .ok-button:hover {
-            background: #c1c1c1;
+
+        h1 {
+            line-height: 1.2 !important;
+            overflow: visible !important;
         }
     </style>
 </head>
-<body>
-    <div class="window">
-        <div class="title-bar">
-            Error
-            <div class="buttons">
-                <div class="button">_</div>
-                <div class="button">□</div>
-                <div class="button">×</div>
+<body class="text-slate-900 dark:text-slate-100 antialiased">
+
+    <!-- Navbar Minimalista -->
+    <nav class="fixed top-0 w-full z-50 glass border-b">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="./scr/nav-icon.svg" alt="Logo" class="h-8">
+                <span class="text-xl font-extrabold tracking-tighter uppercase">Mateo Chicas</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="mailto:info@mateochicas.com" class="hidden md:block text-sm font-semibold hover:text-blue-500 transition-colors">info@mateochicas.com</a>
+                <a href="mailto:info@mateochicas.com" class="bg-navy dark:bg-blue-600 text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform">
+                    Contactar
+                </a>
             </div>
         </div>
-        <div class="content">
-            <div class="icon"></div>
-            <div class="message">
-                Aún estoy explorando mi potencial
+    </nav>
+
+    <main class="pt-32">
+        <!-- Hero Section -->
+        <header class="max-w-7xl mx-auto px-6 mb-24">
+            <div class="max-w-4xl">
+                <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter overflow-visible">
+                    ¿Buscas <span class="text-gradient italic font-light">XP?</span>
+                </h1>
+                <p class="text-2xl md:text-3xl font-bold mb-6 text-navy dark:text-white">
+                    Mateo Alexander Chicas Villavicencio
+                </p>
+                <p class="text-xl text-slate-500 dark:text-slate-400 max-w-2xl font-medium leading-relaxed">
+                    Estratega especializado en desarrollo de software nativo, inteligencia artificial y diseño. Enfocado en la creación de herramientas que priorizan la soberanía tecnológica y el control absoluto del hardware.
+                </p>
             </div>
+        </header>
+
+        <!-- Sección Destacada: Proyecto Hug-Oh! -->
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <div class="glass p-1 rounded-[2.5rem] overflow-hidden">
+                <div class="bg-white dark:bg-slate-900 rounded-[2.2rem] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center">
+                    <div class="flex-1">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 text-[10px] font-bold uppercase tracking-widest mb-6 border border-blue-500/20">
+                            Impulsando negocios locales
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tighter">Hug-Oh! Platform</h2>
+                        <p class="text-lg text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
+                            Proporciono herramientas profesionales para que los negocios locales operen con <span class="text-navy dark:text-white font-bold">soberanía tecnológica</span>. Hug-Oh! es una plataforma empresarial local, rápida y privada diseñada con <span class="text-navy dark:text-white font-bold">Electron</span> para dar control absoluto sobre el hardware.
+                        </p>
+                        <a href="https://hug-oh.com/" target="_blank" class="inline-flex items-center gap-2 text-blue-500 font-bold hover:gap-4 transition-all">
+                            Visitar sitio oficial <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                    <div class="flex-1 w-full max-w-md">
+                        <div class="aspect-square glass rounded-3xl flex items-center justify-center p-12">
+                            <img src="./scr/nav-icon.svg" alt="Logo de Proyecto" class="w-full h-auto drop-shadow-2xl opacity-80">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Experiencia Profesional -->
+        <section class="max-w-7xl mx-auto px-6 pb-32">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Col 1: Desarrollo -->
+                <div class="glass p-8 rounded-3xl flex flex-col justify-between hover:border-blue-500/50 transition-colors">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 tracking-tight text-navy dark:text-white uppercase">Software & Apps</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Especialista en arquitecturas robustas y aplicaciones de escritorio. Desarrollo de soluciones locales optimizadas para la velocidad y la privacidad.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold border px-2 py-1 rounded-md opacity-60 uppercase">Electron</span>
+                        <span class="text-[10px] font-bold border px-2 py-1 rounded-md opacity-60 uppercase">React</span>
+                        <span class="text-[10px] font-bold border px-2 py-1 rounded-md opacity-60 uppercase">Node JS</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: IA & Marketing -->
+                <div class="glass p-8 rounded-3xl flex flex-col justify-between bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 tracking-tight text-navy dark:text-white uppercase">IA & Marketing</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Integración estratégica de modelos inteligentes para optimizar procesos comerciales y mejorar el posicionamiento digital.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex gap-2">
+                        <div class="h-1 flex-1 bg-blue-500 rounded-full"></div>
+                        <div class="h-1 flex-1 bg-slate-200 dark:bg-slate-700 rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Col 3: Audiovisual -->
+                <div class="glass p-8 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-4 tracking-tight text-navy dark:text-white uppercase">Audiovisual</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Producción técnica para medios de entretenimiento y videojuegos. Narrativa inmersiva y diseño sonoro profesional.
+                    </p>
+                    <div class="mt-8 text-4xl font-black opacity-5 tracking-tighter uppercase">Digital Media</div>
+                </div>
+
+                <!-- Liderazgo -->
+                <div class="md:col-span-3 glass p-10 rounded-3xl flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <div>
+                        <h3 class="text-3xl font-black mb-2 tracking-tighter uppercase">Liderazgo & Gestión</h3>
+                        <p class="text-slate-500 dark:text-slate-400">Dirección de equipos técnicos y creativos bajo estándares de calidad y metodologías eficientes.</p>
+                    </div>
+                    <div class="mt-6 md:mt-0 px-8 py-3 bg-navy dark:bg-white text-white dark:text-navy rounded-2xl font-black text-sm uppercase tracking-widest">
+                        Team Lead
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-slate-200 dark:border-slate-800 text-center">
+        <div class="flex justify-center items-center gap-2 opacity-50 mb-6">
+            <img src="./scr/nav-icon.svg" alt="Logo" class="h-6 grayscale">
+            <span class="font-bold text-sm tracking-tighter uppercase">Mateo Alexander Chicas Villavicencio</span>
         </div>
-        <div class="footer">
-            <button class="ok-button" onclick="window.location.href='https://hug-oh.com'">Aceptar</button>
+        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em]">
+            Estrategia • Diseño • Desarrollo • 2026 • Electron Specialist
         </div>
-    </div>
+    </footer>
+
 </body>
 </html>
