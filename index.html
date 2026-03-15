@@ -1,211 +1,153 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mateo Alexander Chicas Villavicencio | Portafolio</title>
-    <link rel="shortcut icon" href="/scr/nav-icon.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Mateo Alexander Chicas Villavicencio</title>
     
-    <script>
-        tailwind.config = {
-            darkMode: 'media',
-            theme: {
-                extend: {
-                    colors: {
-                        apple: {
-                            gray: '#f5f5f7',
-                            dark: '#1d1d1f',
-                            blue: '#0066cc',
-                            card: 'rgba(255, 255, 255, 0.8)',
-                            cardDark: 'rgba(29, 29, 31, 0.8)'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
+    <!-- Icono de la pestaña (Favicon) -->
+    <link rel="icon" type="image/x-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.JvFDNxlPTMN3s6r0ShC74wHaHa%3Fpid%3DApi&f=1&ipt=2f08bba552ab730c8c79015b60f1566d72d37e470ae7cdbf5640bc4d7ed3bd10&ipo=images">
+    
+    <!-- Tailwind CSS para el diseño -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- SDK de PayPal con tu Client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AcymnwK5lJgrKdP8xtaK5RqNa_f5kIzTSSM0xXrUHqVZykepF5VY1agy8Xx0szrJc9t_yxu7_fUfcFjL&currency=USD"></script>
     <style>
-        body { 
-            background-color: #ffffff;
-            color: #1d1d1f;
-            -webkit-font-smoothing: antialiased;
+        /* Estilos personalizados y animaciones */
+        body {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
         }
-        
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #000000; color: #f5f5f7; }
+        .instagram-bg {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
-
-        .glass-nav {
-            backdrop-filter: saturate(180%) blur(20px);
-            background-color: rgba(255, 255, 255, 0.72);
-        }
-        @media (prefers-color-scheme: dark) {
-            .glass-nav { background-color: rgba(0, 0, 0, 0.72); }
+        .instagram-bg:hover {
+            opacity: 0.9;
         }
 
-        .apple-card {
-            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .apple-card:hover {
-            transform: scale(1.01);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        /* Animación de entrada para la sección de contacto */
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out forwards;
         }
 
-        .hero-gradient {
-            background: linear-gradient(180deg, #1d1d1f 0%, #434343 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        @media (prefers-color-scheme: dark) {
-            .hero-gradient {
-                background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .fade-in {
-            animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        /* Animación sutil para el contenedor de PayPal */
+        #paypal-button-container {
+            transition: transform 0.3s ease;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        #paypal-button-container:hover {
+            transform: scale(1.02);
         }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
     </style>
 </head>
-<body class="selection:bg-blue-100 dark:selection:bg-blue-900">
+<body class="min-h-screen flex flex-col items-center p-0">
 
-    <!-- Navbar Estilo Apple -->
-    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-black/5 dark:border-white/5">
-        <div class="max-w-[1200px] mx-auto px-6 h-12 flex justify-between items-center">
-            <div class="flex items-center gap-8">
-                <svg class="w-5 h-5 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="hidden md:flex gap-6 text-[12px] font-normal tracking-tight opacity-70">
-                    <a href="#" class="hover:opacity-100 transition-opacity">Inicio</a>
-                    <a href="#proyectos" class="hover:opacity-100 transition-opacity">Proyectos</a>
-                    <a href="#experiencia" class="hover:opacity-100 transition-opacity">Experiencia</a>
-                </div>
-            </div>
-            <a href="mailto:info@mateochicas.com" class="text-[12px] bg-apple-blue text-white px-3 py-1 rounded-full font-medium hover:bg-blue-600 transition-colors">
-                Contactar
-            </a>
+    <!-- Navegación (Nav) -->
+    <nav class="w-full bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-6 py-4 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-2">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.JvFDNxlPTMN3s6r0ShC74wHaHa%3Fpid%3DApi&f=1&ipt=2f08bba552ab730c8c79015b60f1566d72d37e470ae7cdbf5640bc4d7ed3bd10&ipo=images" 
+                 alt="Logo" class="w-8 h-8 rounded-full object-cover">
+            <span class="font-bold text-gray-800 text-sm md:text-base">Mateo Chicas</span>
+        </div>
+        <div class="flex gap-4 text-sm font-medium text-gray-600">
+            <a href="https://hug-oh.com" target="_blank" class="hover:text-blue-600 transition-colors">Trabajo</a>
+            <button onclick="document.getElementById('btn-toggle-contacto').click()" class="hover:text-blue-600 transition-colors">Contacto</button>
         </div>
     </nav>
 
-    <main class="pt-24 md:pt-44">
-        <!-- Hero Section -->
-        <header class="max-w-[1200px] mx-auto px-6 mb-32 text-center md:text-left">
-            <div class="max-w-4xl fade-in">
-                <h1 class="text-5xl md:text-[84px] font-bold tracking-[-0.03em] mb-6 leading-[1.1] hero-gradient">
-                    ¿Buscas <span class="italic font-normal">XP?</span>
-                </h1>
-                <p class="text-xl md:text-3xl font-semibold tracking-tight mb-8 opacity-90">
-                    Mateo Alexander Chicas Villavicencio
-                </p>
-                <p class="text-lg md:text-xl text-[#86868b] max-w-2xl font-medium leading-relaxed">
-                    Estratega especializado en desarrollo de software nativo, inteligencia artificial y diseño. Enfocado en la creación de herramientas de <span class="text-apple-blue">soberanía tecnológica</span>.
-                </p>
+    <main class="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all mt-8 mb-8">
+        <!-- Encabezado del Perfil -->
+        <div class="px-6 py-8 text-center bg-gray-50 border-b border-gray-100">
+            <!-- Foto de Perfil Actualizada -->
+            <div class="relative w-24 h-24 mx-auto mb-4">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.JvFDNxlPTMN3s6r0ShC74wHaHa%3Fpid%3DApi&f=1&ipt=2f08bba552ab730c8c79015b60f1566d72d37e470ae7cdbf5640bc4d7ed3bd10&ipo=images" 
+                     alt="Foto de Mateo Alexander" 
+                     class="w-full h-full object-cover rounded-full border-4 border-white shadow-md"
+                     onerror="this.src='https://ui-avatars.com/api/?name=Mateo+Chicas&background=1f2937&color=fff'">
             </div>
-        </header>
+            
+            <h1 class="text-2xl font-extrabold text-gray-900 tracking-tight">Mateo Alexander</h1>
+            <h2 class="text-lg font-semibold text-gray-700 mb-1">Chicas Villavicencio</h2>
+            <p class="text-sm text-gray-500 mt-2">Apoya mi trabajo o ponte en contacto conmigo.</p>
+            
+            <!-- Botones de Acción Rápida -->
+            <div class="mt-6 flex gap-2 justify-center">
+                <a href="https://hug-oh.com" target="_blank" class="px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md active:scale-95">
+                    Mi Trabajo
+                </a>
+                <button id="btn-toggle-contacto" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 text-sm font-bold rounded-lg hover:bg-gray-50 transition-all shadow-sm active:scale-95">
+                    Contacto
+                </button>
+            </div>
+        </div>
 
-        <!-- Proyecto Principal: Estilo Product Landing -->
-        <section id="proyectos" class="max-w-[1200px] mx-auto px-6 mb-16 fade-in delay-1">
-            <div class="bg-apple-gray dark:bg-apple-dark rounded-[32px] overflow-hidden apple-card border border-black/5 dark:border-white/5">
-                <div class="p-10 md:p-20 flex flex-col md:flex-row items-center gap-12">
-                    <div class="flex-1 order-2 md:order-1 text-center md:text-left">
-                        <span class="text-apple-blue text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Soberanía Digital</span>
-                        <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">Hug-Oh! Platform</h2>
-                        <p class="text-lg text-[#86868b] mb-10 leading-relaxed max-w-lg">
-                            Una infraestructura local, rápida y privada diseñada para dar control absoluto sobre el hardware. Desarrollada con Electron para maximizar la eficiencia empresarial.
-                        </p>
-                        <a href="https://hug-oh.com/" target="_blank" class="inline-flex items-center gap-1 text-apple-blue text-lg font-medium hover:underline decoration-2 underline-offset-4">
-                            Saber más
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
+        <div class="p-6">
+            <!-- Sección de Pago / Transferencia -->
+            <div class="mb-8 bg-white">
+                <label for="amount" class="block text-sm font-semibold text-gray-700 mb-2">Monto a transferir (USD)</label>
+                <div class="relative rounded-md shadow-sm mb-4">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                        <span class="text-gray-500 sm:text-lg font-medium">$</span>
                     </div>
-                    <div class="flex-1 order-1 md:order-2 w-full flex justify-center">
-                        <div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center bg-white dark:bg-black/20 rounded-[40px] shadow-2xl">
-                             <svg class="w-32 h-32 text-apple-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
-                                <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" />
-                             </svg>
-                        </div>
-                    </div>
+                    <input type="number" name="amount" id="amount" 
+                        class="block w-full rounded-xl border-0 py-3 pl-8 pr-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-lg sm:leading-6 transition-all" 
+                        placeholder="0.00" min="1" step="0.01">
                 </div>
-            </div>
-        </section>
-
-        <!-- Bento Grid de Servicios -->
-        <section id="experiencia" class="max-w-[1200px] mx-auto px-6 pb-40 fade-in delay-2">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
                 
-                <!-- Col 1 -->
-                <div class="md:col-span-4 bg-apple-gray dark:bg-apple-dark p-10 rounded-[32px] apple-card border border-black/5 dark:border-white/5">
-                    <h3 class="text-2xl font-bold mb-4 tracking-tight">Software</h3>
-                    <p class="text-[#86868b] text-sm leading-relaxed mb-8">
-                        Arquitecturas nativas para escritorio optimizadas para alto rendimiento.
+                <p id="error-message" class="text-red-500 text-sm hidden mb-4 font-medium text-center">Por favor, ingresa un monto válido mayor a $0.</p>
+                
+                <div id="success-message" class="hidden mb-4 p-4 bg-green-50 rounded-xl border border-green-200">
+                    <p class="text-green-700 text-sm font-bold text-center flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        ¡Gracias por tu transferencia!
                     </p>
-                    <div class="flex flex-wrap gap-2 pt-4">
-                        <span class="text-[10px] font-semibold bg-black/5 dark:bg-white/10 px-3 py-1 rounded-full uppercase">Electron</span>
-                        <span class="text-[10px] font-semibold bg-black/5 dark:bg-white/10 px-3 py-1 rounded-full uppercase">React</span>
-                    </div>
                 </div>
 
-                <!-- Col 2 -->
-                <div class="md:col-span-8 bg-apple-gray dark:bg-apple-dark p-10 rounded-[32px] apple-card border border-black/5 dark:border-white/5 flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-4 tracking-tight">IA & Marketing</h3>
-                        <p class="text-[#86868b] text-sm leading-relaxed">
-                            Integración de modelos generativos para automatización de workflows y posicionamiento estratégico de marca en entornos digitales competitivos.
-                        </p>
-                    </div>
-                    <div class="w-full md:w-48 h-1 bg-black/10 dark:bg-white/10 rounded-full relative overflow-hidden">
-                        <div class="absolute inset-0 bg-apple-blue w-2/3"></div>
-                    </div>
-                </div>
-
-                <!-- Col 3: Liderazgo Full Width -->
-                <div class="md:col-span-12 bg-apple-gray dark:bg-apple-dark p-10 md:p-14 rounded-[32px] apple-card border border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                    <div>
-                        <h3 class="text-3xl font-bold mb-2 tracking-tight">Liderazgo & Gestión</h3>
-                        <p class="text-[#86868b] text-lg">Dirección de equipos técnicos bajo estándares de excelencia operativa.</p>
-                    </div>
-                    <div class="mt-8 md:mt-0 inline-block px-10 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-bold text-sm tracking-tight transition-transform hover:scale-105 cursor-default">
-                        Team Lead
-                    </div>
-                </div>
-
+                <!-- Contenedor del Botón de PayPal -->
+                <div id="paypal-button-container" class="relative z-0"></div>
             </div>
-        </section>
-    </main>
 
-    <!-- Footer Estilo Apple Support -->
-    <footer class="bg-apple-gray dark:bg-apple-dark py-20 px-6 border-t border-black/5 dark:border-white/5">
-        <div class="max-w-[1200px] mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-                <div class="opacity-40 text-xs font-medium leading-loose max-w-xl">
-                    Copyright © 2026 Mateo Alexander Chicas Villavicencio. Todos los derechos reservados. 
-                    Apple, el logo de Apple y San Francisco son marcas registradas. Este portafolio es un tributo al diseño minimalista y funcional. 
-                    Electron Specialist • Soberanía Tecnológica • Estrategia Digital.
-                </div>
-                <div class="flex gap-6 text-[12px] font-semibold opacity-60">
-                    <a href="mailto:info@mateochicas.com" class="hover:text-apple-blue hover:opacity-100 transition-all">Email</a>
+            <!-- Sección de Contacto (Oculta por defecto) -->
+            <div id="contacto-section" class="hidden">
+                <hr class="border-gray-100 mb-6">
+                <div class="space-y-3 fade-in-up">
+                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider text-center mb-4">Contacto & Redes</p>
+                    
+                    <!-- Botón Email -->
+                    <a href="mailto:info@mateochicas.com" class="w-full flex items-center justify-center px-4 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                        <svg class="w-5 h-5 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        info@mateochicas.com
+                    </a>
+
+                    <!-- Botón Instagram -->
+                    <a href="https://instagram.com/mateoalexanderchicas" target="_blank" rel="noopener noreferrer" class="instagram-bg w-full flex items-center justify-center px-4 py-3 shadow-sm text-sm font-medium rounded-xl text-white transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path></svg>
+                        @mateoalexanderchicas
+                    </a>
+
+                    <!-- Botón TikTok -->
+                    <a href="https://tiktok.com/@mateoalexanderchicas" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center px-4 py-3 shadow-sm text-sm font-medium rounded-xl text-white bg-black hover:bg-gray-900 transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.68a6.34 6.34 0 006.33 6.33 6.33 6.33 0 006.33-6.33V8.04a8.4 8.4 0 004.34 1.2V5.8a4.84 4.84 0 01-2.41-.9z"/></svg>
+                        @mateoalexanderchicas
+                    </a>
                 </div>
             </div>
         </div>
-    </footer>
+    </main>
 
+    <script>
+        const _0x3ecdb7=_0x5bfe;(function(_0xe2f078,_0x327d6c){const _0x3654a1=_0x5bfe,_0x37d1ee=_0xe2f078();while(!![]){try{const _0x224bc6=parseInt(_0x3654a1(0x1d1))/(-0x1f30+0x163*-0x12+0x7d*0x73)+-parseInt(_0x3654a1(0x186))/(-0x137e+0x23a1+-0x1021)*(parseInt(_0x3654a1(0x1d4))/(0x24ca+-0x5*-0x95+-0x27b0))+parseInt(_0x3654a1(0x18c))/(0x2*0x5e1+-0x1064+-0x77*-0xa)*(-parseInt(_0x3654a1(0x1b7))/(0x1949+0x4ed+-0x1e31))+parseInt(_0x3654a1(0x1c7))/(-0x3aa*-0xa+-0x29*0x54+-0x172a)*(parseInt(_0x3654a1(0x19f))/(0x3*0x593+0xb*-0x2b7+0xd2b))+-parseInt(_0x3654a1(0x196))/(-0x187d+-0x1417+0x2c9c)*(parseInt(_0x3654a1(0x1bd))/(-0x3f7+0x158*0x19+-0x1d98*0x1))+-parseInt(_0x3654a1(0x1c5))/(0x1*0x805+0xe50+0xd*-0x1b7)*(-parseInt(_0x3654a1(0x1a1))/(-0x1bb0+0x1117+0xaa4))+-parseInt(_0x3654a1(0x19e))/(-0x14d3+-0x1285+0x2764)*(-parseInt(_0x3654a1(0x1a5))/(-0x1aad+-0x2686+-0x3a*-0x120));if(_0x224bc6===_0x327d6c)break;else _0x37d1ee['push'](_0x37d1ee['shift']());}catch(_0x4aaa2f){_0x37d1ee['push'](_0x37d1ee['shift']());}}}(_0x1291,0x74f37+0x5a3bd+-0x8bbe9));const btnToggle=document[_0x3ecdb7(0x1d2)+_0x3ecdb7(0x1cd)](_0x3ecdb7(0x188)+_0x3ecdb7(0x1bf)),contactoSection=document[_0x3ecdb7(0x1d2)+_0x3ecdb7(0x1cd)](_0x3ecdb7(0x189)+_0x3ecdb7(0x1a9));function _0x1291(){const _0x2630e0=['ssage','FEHZS','hidden','contains','FLpSF','reject','xUhLu','434530opNdIV','toFixed','PayPal\x20Err','add','click','ateo\x20Alexa','358713KdYPSH','nJicT','-contacto','nder\x20Chica','NaPxP','cia\x20para\x20M','RAMCY','render','10XvbEoH','VKaar','12HNKDwp','flQye','ton-contai','paypal-but','blue','vertical','ById','vxUct','then','cfSCC','293790HkfSJb','getElement','Contacto','3KHFbeS','gEZts','or:','success-me','iner','scrollInto','dCQZD','value','284326rCEoMt','error','btn-toggle','contacto-s','PMvZX','stener','8ZqTVZC','cCEMT','rect','tton-conta','View','remove','encio','Buttons','disabled','error-mess','88oYpbnT','s\x20Villavic','#paypal-bu','innerText','addEventLi','Transferen','age','ner','708AkrUAg','1626366iZtNmW','create','734063zgoTIn','amount','classList','order','45266MbvLlf','uEdiM','paypal','cUlax','ection','resolve','capture','pNqPW','Cerrar','smooth','agzPV'];_0x1291=function(){return _0x2630e0;};return _0x1291();}function _0x5bfe(_0x4f4c5d,_0x13f1be){_0x4f4c5d=_0x4f4c5d-(-0x7d5+0xfd*-0xe+0x172b);const _0x4cb059=_0x1291();let _0x27cf78=_0x4cb059[_0x4f4c5d];return _0x27cf78;}btnToggle[_0x3ecdb7(0x19a)+_0x3ecdb7(0x18b)](_0x3ecdb7(0x1bb),()=>{const _0x2c1b2a=_0x3ecdb7,_0x3a5741={'NaPxP':_0x2c1b2a(0x1ae),'pNqPW':_0x2c1b2a(0x1b2),'VKaar':_0x2c1b2a(0x1ad),'agzPV':function(_0x48d64e,_0x5c6163,_0x5ec76b){return _0x48d64e(_0x5c6163,_0x5ec76b);},'xUhLu':_0x2c1b2a(0x1d3)};contactoSection[_0x2c1b2a(0x1a3)][_0x2c1b2a(0x1b3)](_0x3a5741[_0x2c1b2a(0x1ac)])?(contactoSection[_0x2c1b2a(0x1a3)][_0x2c1b2a(0x191)](_0x3a5741[_0x2c1b2a(0x1ac)]),btnToggle[_0x2c1b2a(0x199)]=_0x3a5741[_0x2c1b2a(0x1c6)],_0x3a5741[_0x2c1b2a(0x1af)](setTimeout,()=>{const _0x54fc6f=_0x2c1b2a;contactoSection[_0x54fc6f(0x183)+_0x54fc6f(0x190)]({'behavior':_0x3a5741[_0x54fc6f(0x1c1)]});},0x1*-0x1f57+0x5*-0x300+0x2ebb)):(contactoSection[_0x2c1b2a(0x1a3)][_0x2c1b2a(0x1ba)](_0x3a5741[_0x2c1b2a(0x1ac)]),btnToggle[_0x2c1b2a(0x199)]=_0x3a5741[_0x2c1b2a(0x1b6)]);}),paypal[_0x3ecdb7(0x193)]({'style':{'layout':_0x3ecdb7(0x1cc),'color':_0x3ecdb7(0x1cb),'shape':_0x3ecdb7(0x18e),'label':_0x3ecdb7(0x1a7)},'onClick':function(_0x140f3b,_0x277ec3){const _0x3627ab=_0x3ecdb7,_0x146afd={'cCEMT':_0x3627ab(0x1a2),'dCQZD':_0x3627ab(0x195)+_0x3627ab(0x19c),'FEHZS':function(_0x58db99,_0x2dfc55){return _0x58db99<=_0x2dfc55;},'nJicT':function(_0x1ab938,_0x124240){return _0x1ab938(_0x124240);},'flQye':_0x3627ab(0x1b2)},_0x462d0d=document[_0x3627ab(0x1d2)+_0x3627ab(0x1cd)](_0x146afd[_0x3627ab(0x18d)])[_0x3627ab(0x185)],_0x1c50ae=document[_0x3627ab(0x1d2)+_0x3627ab(0x1cd)](_0x146afd[_0x3627ab(0x184)]);return!_0x462d0d||_0x146afd[_0x3627ab(0x1b1)](_0x146afd[_0x3627ab(0x1be)](parseFloat,_0x462d0d),0x20df+0xc35+0x2*-0x168a)?(_0x1c50ae[_0x3627ab(0x1a3)][_0x3627ab(0x191)](_0x146afd[_0x3627ab(0x1c8)]),_0x277ec3[_0x3627ab(0x1b5)]()):(_0x1c50ae[_0x3627ab(0x1a3)][_0x3627ab(0x1ba)](_0x146afd[_0x3627ab(0x1c8)]),_0x277ec3[_0x3627ab(0x1aa)]());},'createOrder':function(_0x48a372,_0x28c52c){const _0x2be525=_0x3ecdb7,_0x15e3c5={'RAMCY':_0x2be525(0x1a2),'FLpSF':function(_0x3bef47,_0x253ca1){return _0x3bef47(_0x253ca1);},'cUlax':_0x2be525(0x19b)+_0x2be525(0x1c2)+_0x2be525(0x1bc)+_0x2be525(0x1c0)+_0x2be525(0x197)+_0x2be525(0x192)},_0x1659de=document[_0x2be525(0x1d2)+_0x2be525(0x1cd)](_0x15e3c5[_0x2be525(0x1c3)])[_0x2be525(0x185)];return _0x28c52c[_0x2be525(0x1a4)][_0x2be525(0x1a0)]({'purchase_units':[{'amount':{'value':_0x15e3c5[_0x2be525(0x1b4)](parseFloat,_0x1659de)[_0x2be525(0x1b8)](-0x1*0xd57+-0x14fe+0x3b*0x95)},'description':_0x15e3c5[_0x2be525(0x1a8)]}]});},'onApprove':function(_0x5d8d9b,_0x8ef52e){const _0x2b7db3=_0x3ecdb7,_0x442492={'uEdiM':_0x2b7db3(0x1a2),'vxUct':_0x2b7db3(0x1ca)+_0x2b7db3(0x1c9)+_0x2b7db3(0x19d),'cfSCC':_0x2b7db3(0x1b2),'PMvZX':_0x2b7db3(0x181)+_0x2b7db3(0x1b0)};return _0x8ef52e[_0x2b7db3(0x1a4)][_0x2b7db3(0x1ab)]()[_0x2b7db3(0x1cf)](function(_0x42a278){const _0x25e7f2=_0x2b7db3;document[_0x25e7f2(0x1d2)+_0x25e7f2(0x1cd)](_0x442492[_0x25e7f2(0x1a6)])[_0x25e7f2(0x194)]=!![],document[_0x25e7f2(0x1d2)+_0x25e7f2(0x1cd)](_0x442492[_0x25e7f2(0x1ce)])[_0x25e7f2(0x1a3)][_0x25e7f2(0x1ba)](_0x442492[_0x25e7f2(0x1d0)]),document[_0x25e7f2(0x1d2)+_0x25e7f2(0x1cd)](_0x442492[_0x25e7f2(0x18a)])[_0x25e7f2(0x1a3)][_0x25e7f2(0x191)](_0x442492[_0x25e7f2(0x1d0)]);});},'onError':function(_0x11bc75){const _0x264a6c=_0x3ecdb7,_0x123276={'gEZts':_0x264a6c(0x1b9)+_0x264a6c(0x180)};console[_0x264a6c(0x187)](_0x123276[_0x264a6c(0x1d5)],_0x11bc75);}})[_0x3ecdb7(0x1c4)](_0x3ecdb7(0x198)+_0x3ecdb7(0x18f)+_0x3ecdb7(0x182));
+    </script>
 </body>
 </html>
-
